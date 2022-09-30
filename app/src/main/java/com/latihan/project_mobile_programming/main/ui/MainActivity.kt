@@ -7,10 +7,8 @@ import com.latihan.project_mobile_programming.core.domain.repository.UserReposit
 import com.latihan.project_mobile_programming.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        println("Hello World!")
     }
 }
