@@ -1,3 +1,11 @@
 <resources>
-    <string name="app_name">Project-Mobile-Programming</string>
+    <string name="app_name">Chemind</string>
+    <string name="button_back">Button Back</string>
+    <string name="tasks">Tasks</string>
+    <string name="search_task">Search Task</string>
+    <string name="my_task_list">My Task List</string>
+    <string name="task_date">Friday, September 30th 2022</string>
+    <string name="task_author">Created By %s</string>
+    <string name="task">Task</string>
+    <string name="deadline">Deadline</string>
 </resources>
