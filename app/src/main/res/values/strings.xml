@@ -12,4 +12,10 @@
     <string name="Email">kelompok7@gmail.com</string>
     <string name="logout">LOGOUT</string>
     <string name="register">REGISTER</string>
+    <string name="login">Login</string>
+    <string name="login2">LOGIN</string>
+    <string name="don_t_have_an_account">Don\'t Have an Account?</string>
+    <string name="chemind">Chemind</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
 </resources>

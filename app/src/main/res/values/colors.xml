@@ -10,4 +10,5 @@
     <color name="transparant">#00000000</color>
     <color name="primary_surface">#DBEEFF</color>
     <color name="primary_main">#4DA9FF</color>
+    <color name="title">#275580</color>
 </resources>
