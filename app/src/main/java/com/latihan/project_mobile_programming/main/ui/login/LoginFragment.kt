@@ -1,23 +1,24 @@
-package com.latihan.project_mobile_programming.main.ui
+package com.latihan.project_mobile_programming.main.ui.login
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import com.latihan.project_mobile_programming.R
-import com.latihan.project_mobile_programming.databinding.FragmentTaskBinding
+import com.latihan.project_mobile_programming.databinding.FragmentLoginBinding
 
-class TaskFragment : Fragment() {
+class LoginFragment : Fragment() {
 
-    private var _binding: FragmentTaskBinding? = null
+    private var _binding: FragmentLoginBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentTaskBinding.inflate(inflater, container, false)
+        _binding = FragmentLoginBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -25,8 +26,12 @@ class TaskFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         with(binding) {
-            toolbar.tvTitle.text = getString(R.string.title_login)
-            toolbar.ibBack.visibility = View.INVISIBLE
+            tvSignUp.setOnClickListener {
+                findNavController().navigate(R.id.action_loginFragment_to_signUpFragment)
+            }
+            btnLogin.setOnClickListener {
+                findNavController().navigate(R.id.action_loginFragment_to_channelFragment)
+            }
         }
     }
 

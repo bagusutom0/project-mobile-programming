@@ -1,4 +1,4 @@
-package com.latihan.project_mobile_programming.main.ui
+package com.latihan.project_mobile_programming.main.ui.task
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

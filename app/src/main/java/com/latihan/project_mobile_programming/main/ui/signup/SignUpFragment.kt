@@ -1,4 +1,4 @@
-package com.latihan.project_mobile_programming.main.ui
+package com.latihan.project_mobile_programming.main.ui.signup
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,18 +7,18 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.latihan.project_mobile_programming.R
-import com.latihan.project_mobile_programming.databinding.FragmentLoginBinding
+import com.latihan.project_mobile_programming.databinding.FragmentSignUpBinding
 
-class LoginFragment : Fragment() {
+class SignUpFragment : Fragment() {
 
-    private var _binding: FragmentLoginBinding? = null
+    private var _binding: FragmentSignUpBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentLoginBinding.inflate(inflater, container, false)
+        _binding = FragmentSignUpBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -26,11 +26,11 @@ class LoginFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         with(binding) {
-            tvSignUp.setOnClickListener {
-                findNavController().navigate(R.id.action_loginFragment_to_signUpFragment)
+            tvLogin.setOnClickListener {
+                findNavController().navigate(R.id.action_signUpFragment_to_loginFragment)
             }
-            btnLogin.setOnClickListener {
-                findNavController().navigate(R.id.action_loginFragment_to_channelFragment)
+            btnSignUp.setOnClickListener{
+                findNavController().navigate(R.id.action_signUpFragment_to_loginFragment)
             }
         }
     }
