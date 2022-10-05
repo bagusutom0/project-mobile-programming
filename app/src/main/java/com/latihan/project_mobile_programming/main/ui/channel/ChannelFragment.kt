@@ -30,6 +30,8 @@ class ChannelFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.run {
+            toolbar.tvTitle.text = "Channel"
+
             fabAdd.setOnClickListener {
                 view.findNavController()
                     .navigate(R.id.action_channelFragment_to_createChannelFragment)
