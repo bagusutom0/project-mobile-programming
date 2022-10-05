@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".main.ui.ChannelFragment">
+    tools:context=".main.ui.channel.ChannelFragment">
 
     <include
         android:id="@+id/toolbar"
@@ -14,7 +14,7 @@
         android:id="@+id/tilSearch"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
-        android:layout_height="56dp"
+        android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="30dp"
         android:layout_marginRight="16dp"

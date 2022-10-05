@@ -1,5 +1,10 @@
 <resources>
     <string name="app_name">Chemind</string>
+    <string name="title_login">Login</string>
+    <string name="btn_login">LOGIN</string>
+    <string name="title_channel">Channel</string>
+    <string name="title_create_channel">Create Channel</string>
+    <string name="title_profile">Profile</string>
     <string name="button_back">Button Back</string>
     <string name="tasks">Tasks</string>
     <string name="search_task">Search Task</string>
@@ -13,8 +18,7 @@
     <string name="logout">LOGOUT</string>
     <string name="register">REGISTER</string>
     <string name="login">Login</string>
-    <string name="login2">LOGIN</string>
-    <string name="don_t_have_an_account">Don\'t Have an Account?</string>
+    <string name="sign_up">Don\'t Have an Account? <b>Sign Up</b></string>
     <string name="chemind">Chemind</string>
     <string name="email">Email</string>
     <string name="password">Password</string>
@@ -24,5 +28,8 @@
     <string name="search_channel">Search Channel</string>
     <string name="fab_add">Floating Action Button Add</string>
     <string name="fab_check">Floating Action Button Check</string>
-
+    <string name="title_sign_up">Sign Up</string>
+    <string name="full_name">Full Name</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="tv_login">Already Have Account? <b>Login</b></string>
 </resources>
