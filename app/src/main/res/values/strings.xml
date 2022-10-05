@@ -5,6 +5,7 @@
     <string name="title_channel">Channel</string>
     <string name="title_create_channel">Create Channel</string>
     <string name="title_profile">Profile</string>
+    <string name="title_create_task">Create Task</string>
     <string name="button_back">Button Back</string>
     <string name="tasks">Tasks</string>
     <string name="search_task">Search Task</string>

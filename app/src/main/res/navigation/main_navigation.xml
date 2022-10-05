@@ -74,6 +74,9 @@
         <argument
             android:name="title"
             app:argType="string" />
+        <action
+            android:id="@+id/action_taskFragment_to_channelFragment"
+            app:destination="@id/channelFragment" />
     </fragment>
     <fragment
         android:id="@+id/createTaskFragment"

@@ -33,6 +33,10 @@ class CreateChannelFragment : Fragment() {
             toolbar.ibBack.setOnClickListener {
                 findNavController().navigate(R.id.action_createChannelFragment_to_channelFragment)
             }
+
+            fabCheck.setOnClickListener {
+                findNavController().navigate(R.id.action_createChannelFragment_to_channelFragment)
+            }
         }
     }
 

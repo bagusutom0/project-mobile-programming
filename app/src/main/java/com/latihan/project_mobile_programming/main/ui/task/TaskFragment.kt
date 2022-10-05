@@ -34,7 +34,11 @@ class TaskFragment : Fragment() {
 
         with(binding) {
             toolbar.tvTitle.text = args.title
-            toolbar.ibBack.visibility = View.INVISIBLE
+            toolbar.ibProfile.visibility = View.INVISIBLE
+
+            toolbar.ibBack.setOnClickListener {
+                findNavController().navigate(R.id.action_taskFragment_to_channelFragment)
+            }
 
             fabAdd.setOnClickListener {
                 findNavController().navigate(R.id.action_taskFragment_to_createTaskFragment)
