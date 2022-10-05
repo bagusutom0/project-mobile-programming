@@ -73,7 +73,8 @@
             app:destination="@id/createTaskFragment" />
         <argument
             android:name="title"
-            app:argType="string" />
+            app:argType="string"
+            android:defaultValue="Title" />
         <action
             android:id="@+id/action_taskFragment_to_channelFragment"
             app:destination="@id/channelFragment" />
@@ -86,6 +87,10 @@
         <action
             android:id="@+id/action_createTaskFragment_to_taskFragment"
             app:destination="@id/taskFragment" />
+        <argument
+            android:name="title"
+            app:argType="string"
+            android:defaultValue="Title" />
     </fragment>
 
 
