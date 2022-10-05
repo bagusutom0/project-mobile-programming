@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.latihan.project_mobile_programming.main.ui.login.LoginFragment"
+        android:name="com.latihan.project_mobile_programming.presentation.login.LoginFragment"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login" >
         <action
@@ -20,7 +20,7 @@
 
     <fragment
         android:id="@+id/signUpFragment"
-        android:name="com.latihan.project_mobile_programming.main.ui.signup.SignUpFragment"
+        android:name="com.latihan.project_mobile_programming.presentation.signup.SignUpFragment"
         android:label="fragment_sign_up"
         tools:layout="@layout/fragment_sign_up" >
         <action
@@ -29,7 +29,7 @@
     </fragment>
     <fragment
         android:id="@+id/channelFragment"
-        android:name="com.latihan.project_mobile_programming.main.ui.channel.ChannelFragment"
+        android:name="com.latihan.project_mobile_programming.presentation.channel.ChannelFragment"
         android:label="fragment_channel"
         tools:layout="@layout/fragment_channel" >
         <action
@@ -41,10 +41,13 @@
         <action
             android:id="@+id/action_channelFragment_to_taskFragment"
             app:destination="@id/taskFragment" />
+        <argument
+            android:name="user"
+            android:defaultValue="User" />
     </fragment>
     <fragment
         android:id="@+id/profileFragment"
-        android:name="com.latihan.project_mobile_programming.main.ui.profile.ProfileFragment"
+        android:name="com.latihan.project_mobile_programming.presentation.profile.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" >
         <action
@@ -56,7 +59,7 @@
     </fragment>
     <fragment
         android:id="@+id/createChannelFragment"
-        android:name="com.latihan.project_mobile_programming.main.ui.channel.CreateChannelFragment"
+        android:name="com.latihan.project_mobile_programming.presentation.channel.CreateChannelFragment"
         android:label="fragment_create_channel"
         tools:layout="@layout/fragment_create_channel" >
         <action
@@ -65,7 +68,7 @@
     </fragment>
     <fragment
         android:id="@+id/taskFragment"
-        android:name="com.latihan.project_mobile_programming.main.ui.task.TaskFragment"
+        android:name="com.latihan.project_mobile_programming.presentation.task.TaskFragment"
         android:label="fragment_task"
         tools:layout="@layout/fragment_task" >
         <action
@@ -73,14 +76,15 @@
             app:destination="@id/createTaskFragment" />
         <argument
             android:name="title"
-            app:argType="string" />
+            app:argType="string"
+            android:defaultValue="Title" />
         <action
             android:id="@+id/action_taskFragment_to_channelFragment"
             app:destination="@id/channelFragment" />
     </fragment>
     <fragment
         android:id="@+id/createTaskFragment"
-        android:name="com.latihan.project_mobile_programming.main.ui.task.CreateTaskFragment"
+        android:name="com.latihan.project_mobile_programming.presentation.task.CreateTaskFragment"
         android:label="fragment_create_task"
         tools:layout="@layout/fragment_create_task" >
         <action

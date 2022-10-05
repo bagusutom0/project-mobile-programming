@@ -12,7 +12,7 @@
     <string name="my_task_list">My Task List</string>
     <string name="task_date">Friday, September 30th 2022</string>
     <string name="task_author">Created By %s</string>
-    <string name="task">Task</string>
+    <string name="todo">Task</string>
     <string name="deadline">Deadline</string>
     <string name="user">Bagus Azaria Buchori Siregar</string>
     <string name="Email">kelompok7@gmail.com</string>

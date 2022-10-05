@@ -1,6 +1,7 @@
 package com.latihan.project_mobile_programming.di
 
 import android.app.Application
+import com.latihan.project_mobile_programming.core.di.databaseModule
 import com.latihan.project_mobile_programming.core.di.repositoryModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
@@ -13,8 +14,12 @@ class MyApp: Application() {
         startKoin{
             androidLogger()
             androidContext(this@MyApp)
-            modules(appModule)
-            modules(repositoryModule)
+            modules(listOf(
+                appModule,
+                repositoryModule,
+                databaseModule,
+                viewmodelModule
+            ))
         }
     }
 }
