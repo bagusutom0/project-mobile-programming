@@ -1,8 +1,7 @@
-package com.latihan.project_mobile_programming.main.ui
+package com.latihan.project_mobile_programming.main.ui.profile
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.latihan.project_mobile_programming.R
 import com.latihan.project_mobile_programming.databinding.ActivityProfileBinding
 
 class ProfileActivity : AppCompatActivity() {

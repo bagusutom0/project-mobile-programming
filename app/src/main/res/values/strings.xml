@@ -11,7 +11,7 @@
     <string name="user">Bagus Azaria Buchori Siregar</string>
     <string name="Email">kelompok7@gmail.com</string>
     <string name="logout">LOGOUT</string>
-    <string name="register">REGISTER</string>
+    <string name="register">Register</string>
     <string name="login">Login</string>
     <string name="login2">LOGIN</string>
     <string name="don_t_have_an_account">Don\'t Have an Account?</string>
@@ -24,5 +24,6 @@
     <string name="search_channel">Search Channel</string>
     <string name="fab_add">Floating Action Button Add</string>
     <string name="fab_check">Floating Action Button Check</string>
+    <string name="already_have_an_account">Already Have an Account?</string>
 
 </resources>

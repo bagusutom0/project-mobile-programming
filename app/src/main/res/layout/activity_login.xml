@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".main.ui.LoginActivity">
+    tools:context=".main.ui.login.LoginActivity">
 
     <ImageView
         android:layout_width="140dp"
@@ -83,7 +83,7 @@
         app:layout_constraintTop_toBottomOf="@+id/tilPassword" />
 
     <LinearLayout
-        android:id="@+id/lRegister"
+        android:id="@+id/lLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -101,10 +101,10 @@
             android:textSize="12sp" />
 
         <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/tvvLogin"
+            android:id="@+id/tvvRegister"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/login"
+            android:text="@string/register"
             android:textSize="12sp"
             android:textStyle="bold" />
     </LinearLayout>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/channel_graph"
+    app:startDestination="@id/channelFragment">
+
+    <fragment
+        android:id="@+id/channelFragment"
+        android:name="com.latihan.project_mobile_programming.main.ui.channel.ChannelFragment"
+        android:label="fragment_channel"
+        tools:layout="@layout/fragment_channel" >
+        <action
+            android:id="@+id/action_channelFragment_to_createChannelFragment"
+            app:destination="@id/createChannelFragment" />
+        <action
+            android:id="@+id/action_channelFragment_to_taskActivity"
+            app:destination="@id/taskActivity" />
+    </fragment>
+    <fragment
+        android:id="@+id/createChannelFragment"
+        android:name="com.latihan.project_mobile_programming.main.ui.channel.CreateChannelFragment"
+        android:label="fragment_create_channel"
+        tools:layout="@layout/fragment_create_channel" />
+    <activity
+        android:id="@+id/taskActivity"
+        android:name="com.latihan.project_mobile_programming.main.ui.task.TaskActivity"
+        android:label="activity_task"
+        tools:layout="@layout/activity_task" >
+        <argument
+            android:name="title"
+            app:argType="string" />
+    </activity>
+</navigation>
