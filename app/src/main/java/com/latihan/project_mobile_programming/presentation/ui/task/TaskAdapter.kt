@@ -1,4 +1,4 @@
-package com.latihan.project_mobile_programming.presentation.task
+package com.latihan.project_mobile_programming.presentation.ui.task
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -17,7 +17,11 @@ class TaskAdapter(
         RecyclerView.ViewHolder(binding.root) {
         fun bind(todo: Todo) {
             binding.apply {
-                rvTask.isChecked = todo.isChecked
+                rbTask.isChecked = todo.isChecked
+                rbTask.setOnClickListener{
+                    onRBClickListener?.invoke(todo.todo, todo.isChecked)
+                }
+
                 tvTaskTitle.text = todo.todo
                 tvTaskDate.text = todo.deadline
                 tvTaskAuthor.text = context.getString(R.string.task_author, todo.author)
@@ -51,5 +55,11 @@ class TaskAdapter(
     }
 
     override fun getItemCount(): Int = differ.currentList.size
+
+    private var onRBClickListener: ((String, Boolean) -> Unit)? = null
+
+    fun setOnRBClickListener(listener: (String, Boolean) -> Unit) {
+        onRBClickListener = listener
+    }
 
 }

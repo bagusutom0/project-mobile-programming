@@ -15,9 +15,13 @@ class TodoRepositoryImp(private val todoDao: TodoDao): TodoRepository {
         todoDao.insertTodo(todo.toEntity())
     }
 
-    override suspend fun getTodo(): Flow<List<Todo>> {
+    override suspend fun getTodo(channel: String): Flow<List<Todo>> {
         return flow {
-            emitAll(todoDao.getTodo().map { listTodoEntity -> listTodoEntity.map { it.toDomain()} })
+            emitAll(todoDao.getTodo(channel).map { listTodoEntity -> listTodoEntity.map { it.toDomain()} })
         }
+    }
+
+    override suspend fun setCheckedValue(todo: String, isChecked: Boolean) {
+        todoDao.setCheckedValue(todo, isChecked)
     }
 }

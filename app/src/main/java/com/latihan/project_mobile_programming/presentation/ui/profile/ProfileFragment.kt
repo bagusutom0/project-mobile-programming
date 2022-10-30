@@ -1,4 +1,4 @@
-package com.latihan.project_mobile_programming.presentation.profile
+package com.latihan.project_mobile_programming.presentation.ui.profile
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -6,13 +6,19 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.latihan.project_mobile_programming.R
 import com.latihan.project_mobile_programming.databinding.FragmentProfileBinding
+import com.latihan.project_mobile_programming.presentation.viewmodel.UserViewModel
+import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
 class ProfileFragment : Fragment() {
 
     private var _binding: FragmentProfileBinding? = null
     private val binding get() = _binding!!
+
+    private val args by navArgs<ProfileFragmentArgs>()
+    private val viewModel by sharedViewModel<UserViewModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -30,10 +36,19 @@ class ProfileFragment : Fragment() {
             toolbar.ibProfile.visibility = View.INVISIBLE
 
             toolbar.ibBack.setOnClickListener {
-                findNavController().navigate(R.id.action_profileFragment_to_channelFragment)
+                findNavController().navigate(
+                    ProfileFragmentDirections.actionProfileFragmentToChannelFragment(args.user)
+                )
             }
             btnLogOut.setOnClickListener {
-                findNavController().navigate(R.id.action_profileFragment_to_loginFragment)
+                findNavController().navigate(
+                    ProfileFragmentDirections.actionProfileFragmentToSplashScreenActivity()
+                )
+            }
+
+            viewModel.user.observe(viewLifecycleOwner) { user ->
+                tvEmail.text = user.email
+                tvName.text = user.name
             }
         }
     }

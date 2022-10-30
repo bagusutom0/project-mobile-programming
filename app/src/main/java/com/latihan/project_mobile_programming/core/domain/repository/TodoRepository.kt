@@ -5,5 +5,6 @@ import kotlinx.coroutines.flow.Flow
 
 interface TodoRepository {
     suspend fun insertTodo(todo: Todo)
-    suspend fun getTodo(): Flow<List<Todo>>
+    suspend fun getTodo(channel: String): Flow<List<Todo>>
+    suspend fun setCheckedValue(todo: String, isChecked: Boolean)
 }

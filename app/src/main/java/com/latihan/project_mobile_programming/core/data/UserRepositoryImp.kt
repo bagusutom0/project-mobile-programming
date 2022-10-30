@@ -7,16 +7,15 @@ import com.latihan.project_mobile_programming.core.domain.model.User
 import com.latihan.project_mobile_programming.core.domain.repository.UserRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
-import kotlinx.coroutines.flow.map
 
 class UserRepositoryImp(private val userDao: UserDao): UserRepository {
-    override suspend fun insetUser(user: User) {
-        userDao.insertUser(user.toEntity())
+    override suspend fun insertUser(name: String, email: String, password: String) {
+        userDao.insertUser(User(name, email, password).toEntity())
     }
 
     override suspend fun getUser(email: String, password: String): Flow<User> {
         return flow {
-            userDao.getUser(email, password).map { it.toDomain() }
+            emit(userDao.getUser(email, password).toDomain())
         }
     }
 }

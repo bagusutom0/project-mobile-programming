@@ -1,18 +1,22 @@
-package com.latihan.project_mobile_programming.presentation.signup
+package com.latihan.project_mobile_programming.presentation.ui.signup
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.latihan.project_mobile_programming.R
 import com.latihan.project_mobile_programming.databinding.FragmentSignUpBinding
+import com.latihan.project_mobile_programming.presentation.viewmodel.UserViewModel
+import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
 class SignUpFragment : Fragment() {
 
     private var _binding: FragmentSignUpBinding? = null
     private val binding get() = _binding!!
+
+    private val viewModel by sharedViewModel<UserViewModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -29,8 +33,16 @@ class SignUpFragment : Fragment() {
             tvLogin.setOnClickListener {
                 findNavController().navigate(R.id.action_signUpFragment_to_loginFragment)
             }
-            btnSignUp.setOnClickListener{
-                findNavController().navigate(R.id.action_signUpFragment_to_loginFragment)
+            btnSignUp.setOnClickListener {
+                val name = tietFullName.text.toString().trim()
+                val email = tietEmail.text.toString().trim()
+                val password = tietPassword.text.toString().trim()
+
+                if (name.isNotEmpty() && email.isNotEmpty() && password.isNotEmpty()) {
+                    viewModel.insertNewuser(name, email, password)
+                    findNavController().navigate(R.id.action_signUpFragment_to_loginFragment)
+                }
+
             }
         }
     }

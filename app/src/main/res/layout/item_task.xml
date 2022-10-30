@@ -17,7 +17,7 @@
         android:padding="16dp">
 
         <RadioButton
-            android:id="@+id/rvTask"
+            android:id="@+id/rbTask"
             android:layout_width="36dp"
             android:layout_height="36dp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -33,7 +33,7 @@
             android:text="@string/my_task_list"
             android:textSize="16sp"
             android:textStyle="bold"
-            app:layout_constraintStart_toEndOf="@+id/rvTask"
+            app:layout_constraintStart_toEndOf="@+id/rbTask"
             app:layout_constraintTop_toTopOf="parent" />
 
         <com.google.android.material.textview.MaterialTextView
@@ -44,7 +44,7 @@
             android:layout_marginTop="5dp"
             android:text="@string/task_date"
             android:textSize="11sp"
-            app:layout_constraintStart_toEndOf="@+id/rvTask"
+            app:layout_constraintStart_toEndOf="@+id/rbTask"
             app:layout_constraintTop_toBottomOf="@id/tvTaskTitle" />
 
         <com.google.android.material.textview.MaterialTextView
@@ -55,7 +55,7 @@
             android:layout_marginTop="10dp"
             android:text="@string/task_author"
             android:textSize="11sp"
-            app:layout_constraintStart_toEndOf="@+id/rvTask"
+            app:layout_constraintStart_toEndOf="@+id/rbTask"
             app:layout_constraintTop_toBottomOf="@id/tvTaskDate" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

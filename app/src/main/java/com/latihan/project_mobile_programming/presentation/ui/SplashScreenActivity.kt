@@ -1,4 +1,4 @@
-package com.latihan.project_mobile_programming.presentation
+package com.latihan.project_mobile_programming.presentation.ui
 
 import android.annotation.SuppressLint
 import android.content.Intent

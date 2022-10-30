@@ -1,4 +1,4 @@
-package com.latihan.project_mobile_programming.presentation.channel
+package com.latihan.project_mobile_programming.presentation.ui.channel
 
 import android.content.Context
 import android.view.LayoutInflater

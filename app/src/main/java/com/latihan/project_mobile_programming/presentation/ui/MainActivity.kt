@@ -1,7 +1,7 @@
-package com.latihan.project_mobile_programming.presentation
+package com.latihan.project_mobile_programming.presentation.ui
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.latihan.project_mobile_programming.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
