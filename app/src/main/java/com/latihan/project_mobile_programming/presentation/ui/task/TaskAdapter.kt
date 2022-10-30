@@ -1,4 +1,4 @@
-package com.latihan.project_mobile_programming.presentation.task
+package com.latihan.project_mobile_programming.presentation.ui.task
 
 import android.content.Context
 import android.view.LayoutInflater

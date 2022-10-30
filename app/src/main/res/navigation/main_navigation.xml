@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.latihan.project_mobile_programming.presentation.login.LoginFragment"
+        android:name="com.latihan.project_mobile_programming.presentation.ui.login.LoginFragment"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login" >
         <action
@@ -20,7 +20,7 @@
 
     <fragment
         android:id="@+id/signUpFragment"
-        android:name="com.latihan.project_mobile_programming.presentation.signup.SignUpFragment"
+        android:name="com.latihan.project_mobile_programming.presentation.ui.signup.SignUpFragment"
         android:label="fragment_sign_up"
         tools:layout="@layout/fragment_sign_up" >
         <action
@@ -29,7 +29,7 @@
     </fragment>
     <fragment
         android:id="@+id/channelFragment"
-        android:name="com.latihan.project_mobile_programming.presentation.channel.ChannelFragment"
+        android:name="com.latihan.project_mobile_programming.presentation.ui.channel.ChannelFragment"
         android:label="fragment_channel"
         tools:layout="@layout/fragment_channel" >
         <action
@@ -47,7 +47,7 @@
     </fragment>
     <fragment
         android:id="@+id/profileFragment"
-        android:name="com.latihan.project_mobile_programming.presentation.profile.ProfileFragment"
+        android:name="com.latihan.project_mobile_programming.presentation.ui.profile.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" >
         <action
@@ -56,44 +56,56 @@
         <action
             android:id="@+id/action_profileFragment_to_channelFragment"
             app:destination="@id/channelFragment" />
+        <argument
+            android:name="user"
+            app:argType="string"
+            android:defaultValue="admin" />
     </fragment>
     <fragment
         android:id="@+id/createChannelFragment"
-        android:name="com.latihan.project_mobile_programming.presentation.channel.CreateChannelFragment"
+        android:name="com.latihan.project_mobile_programming.presentation.ui.channel.CreateChannelFragment"
         android:label="fragment_create_channel"
         tools:layout="@layout/fragment_create_channel" >
         <action
             android:id="@+id/action_createChannelFragment_to_channelFragment"
             app:destination="@id/channelFragment" />
+        <argument
+            android:name="authorName"
+            app:argType="string"
+            android:defaultValue="Admin" />
     </fragment>
     <fragment
         android:id="@+id/taskFragment"
-        android:name="com.latihan.project_mobile_programming.presentation.task.TaskFragment"
+        android:name="com.latihan.project_mobile_programming.presentation.ui.task.TaskFragment"
         android:label="fragment_task"
         tools:layout="@layout/fragment_task" >
         <action
             android:id="@+id/action_taskFragment_to_createTaskFragment"
             app:destination="@id/createTaskFragment" />
         <argument
-            android:name="title"
+            android:name="channel"
             app:argType="string"
-            android:defaultValue="Title" />
+            android:defaultValue="channel" />
         <action
             android:id="@+id/action_taskFragment_to_channelFragment"
             app:destination="@id/channelFragment" />
     </fragment>
     <fragment
         android:id="@+id/createTaskFragment"
-        android:name="com.latihan.project_mobile_programming.presentation.task.CreateTaskFragment"
+        android:name="com.latihan.project_mobile_programming.presentation.ui.task.CreateTaskFragment"
         android:label="fragment_create_task"
         tools:layout="@layout/fragment_create_task" >
         <action
             android:id="@+id/action_createTaskFragment_to_taskFragment"
             app:destination="@id/taskFragment" />
         <argument
-            android:name="title"
+            android:name="channel"
             app:argType="string"
-            android:defaultValue="Title" />
+            android:defaultValue="channel" />
+        <argument
+            android:name="author"
+            app:argType="string"
+            android:defaultValue="admin" />
     </fragment>
 
 

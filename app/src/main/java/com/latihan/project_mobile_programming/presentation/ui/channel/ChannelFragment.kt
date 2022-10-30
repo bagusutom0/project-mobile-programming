@@ -1,22 +1,24 @@
-package com.latihan.project_mobile_programming.presentation.channel
+package com.latihan.project_mobile_programming.presentation.ui.channel
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.latihan.project_mobile_programming.R
-import com.latihan.project_mobile_programming.core.domain.model.Channel
 import com.latihan.project_mobile_programming.databinding.FragmentChannelBinding
+import com.latihan.project_mobile_programming.presentation.viewmodel.ChannelViewModel
+import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
 class ChannelFragment : Fragment() {
 
     private var _binding: FragmentChannelBinding? = null
     private val binding get() = _binding!!
 
+    private val channelViewModel by sharedViewModel<ChannelViewModel>()
     private val args by navArgs<ChannelFragmentArgs>()
 
     private val adapter by lazy {
@@ -39,24 +41,22 @@ class ChannelFragment : Fragment() {
             toolbar.ibBack.visibility = View.INVISIBLE
 
             toolbar.ibProfile.setOnClickListener {
-                findNavController().navigate(R.id.action_channelFragment_to_profileFragment)
+                findNavController().navigate(
+                    ChannelFragmentDirections.actionChannelFragmentToProfileFragment(args.user)
+                )
             }
 
             fabAdd.setOnClickListener {
-                findNavController().navigate(R.id.action_channelFragment_to_createChannelFragment)
-            }
-
-            adapter.run {
-                differ.submitList(
-                    listOf(
-                        Channel("Adhi Cs", "Adhi"),
-                        Channel("Marella Cs", "Marel"),
-                        Channel("Jozka Cs", "Jozka")
-                    )
+                findNavController().navigate(
+                    ChannelFragmentDirections.actionChannelFragmentToCreateChannelFragment(args.user)
                 )
-
-                setOnItemClickListener { onItemClickListener(it) }
             }
+
+            channelViewModel.listChannel.observe(viewLifecycleOwner) { listChannel ->
+                adapter.differ.submitList(listChannel)
+            }
+
+            adapter.setOnItemClickListener { onItemClickListener(it) }
 
             rvTask.layoutManager = LinearLayoutManager(requireContext())
             rvTask.setHasFixedSize(true)

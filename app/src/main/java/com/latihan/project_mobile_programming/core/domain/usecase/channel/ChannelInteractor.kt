@@ -5,6 +5,6 @@ import com.latihan.project_mobile_programming.core.domain.repository.ChannelRepo
 import kotlinx.coroutines.flow.Flow
 
 class ChannelInteractor(private val channelRepository: ChannelRepository): ChannelUseCase {
-    override suspend fun insertChannel(channel: Channel) = channelRepository.insertChannel(channel)
+    override suspend fun insertChannel(channel: String, author: String) = channelRepository.insertChannel(Channel(channel, author))
     override suspend fun getChannel(): Flow<List<Channel>>  =channelRepository.getChannel()
 }
