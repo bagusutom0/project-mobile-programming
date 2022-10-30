@@ -1,4 +1,4 @@
-package com.latihan.project_mobile_programming.presentation.task
+package com.latihan.project_mobile_programming.presentation.ui.task
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,12 +10,15 @@ import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.latihan.project_mobile_programming.R
 import com.latihan.project_mobile_programming.databinding.FragmentTaskBinding
+import com.latihan.project_mobile_programming.presentation.viewmodel.TodoViewModel
+import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
 class TaskFragment : Fragment() {
 
     private var _binding: FragmentTaskBinding? = null
     private val binding get() = _binding!!
 
+    private val viewModel by sharedViewModel<TodoViewModel>()
     private val args by navArgs<TaskFragmentArgs>()
 
     private val adapter by lazy {
@@ -34,7 +37,7 @@ class TaskFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         with(binding) {
-            toolbar.tvTitle.text = args.title
+            toolbar.tvTitle.text = args.channel
             toolbar.ibProfile.visibility = View.INVISIBLE
 
             toolbar.ibBack.setOnClickListener {
@@ -45,13 +48,9 @@ class TaskFragment : Fragment() {
                 findNavController().navigate(R.id.action_taskFragment_to_createTaskFragment)
             }
 
-//            adapter.differ.submitList(
-//                listOf(
-//                    Todo(isChecked = false, todo = "makan", deadline = "31 Agustus 2021", author = "Adhi"),
-//                    Todo(isChecked = false, todo = "mandi", deadline = "32 Agustus 2021", author = "Adhi"),
-//                    Todo(isChecked = false, todo = "turu", deadline = "33 Agustus 2021", author = "Adhi"),
-//                )
-//            )
+            viewModel.listTodo.observe(viewLifecycleOwner) {
+                adapter.differ.submitList(it)
+            }
 
             rvTask.layoutManager = LinearLayoutManager(requireContext())
             rvTask.setHasFixedSize(true)
