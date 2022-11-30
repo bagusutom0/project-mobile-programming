@@ -25,9 +25,10 @@
         app:startIconDrawable="@drawable/ic_note">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/tietTaskName"
+            android:id="@+id/tietChannelName"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:maxLines="1"/>
 
     </com.google.android.material.textfield.TextInputLayout>
 

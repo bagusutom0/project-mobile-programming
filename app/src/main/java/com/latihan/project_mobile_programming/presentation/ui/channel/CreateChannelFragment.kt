@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
@@ -41,9 +42,22 @@ class CreateChannelFragment : Fragment() {
             }
 
             fabCheck.setOnClickListener {
-                val taskName = tietTaskName.text.toString().trim()
-                channelViewModel.insertChannel(taskName, args.authorName)
-                findNavController().navigate(CreateChannelFragmentDirections.actionCreateChannelFragmentToChannelFragment(args.authorName))
+                val channelName = tietChannelName.text.toString().trim()
+
+                if (channelName.isNotEmpty()) {
+                    channelViewModel.insertChannel(channelName, args.authorName)
+                    findNavController().navigate(
+                        CreateChannelFragmentDirections.actionCreateChannelFragmentToChannelFragment(
+                            args.authorName
+                        )
+                    )
+                } else {
+                    Toast.makeText(
+                        requireContext(),
+                        "Mohon isi nama channel dengan benar",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
             }
         }
     }

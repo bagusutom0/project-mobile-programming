@@ -9,6 +9,7 @@
     android:layout_marginBottom="10dp"
     android:background="@color/white"
     android:elevation="4dp"
+    android:id="@+id/cvTask"
     app:cardCornerRadius="4dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout

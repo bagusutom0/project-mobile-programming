@@ -1,9 +1,11 @@
 package com.latihan.project_mobile_programming.presentation.ui.signup
 
 import android.os.Bundle
+import android.util.Patterns
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.latihan.project_mobile_programming.R
@@ -37,12 +39,34 @@ class SignUpFragment : Fragment() {
                 val name = tietFullName.text.toString().trim()
                 val email = tietEmail.text.toString().trim()
                 val password = tietPassword.text.toString().trim()
+                val confirmPassword = tietConfirmPassword.text.toString().trim()
 
-                if (name.isNotEmpty() && email.isNotEmpty() && password.isNotEmpty()) {
-                    viewModel.insertNewuser(name, email, password)
-                    findNavController().navigate(R.id.action_signUpFragment_to_loginFragment)
+                if (name.isEmpty() || email.isEmpty() || password.isEmpty() || confirmPassword.isEmpty()) {
+                    Toast.makeText(
+                        requireContext(),
+                        "Mohon isi semua data",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                } else {
+                    if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+                        Toast.makeText(
+                            requireContext(),
+                            "Mohon masukan Email dengan benar",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
+
+                    if (password == confirmPassword) {
+                        viewModel.insertNewuser(name, email, password)
+                        findNavController().navigate(R.id.action_signUpFragment_to_loginFragment)
+                    } else {
+                        Toast.makeText(
+                            requireContext(),
+                            "Password tidak sama",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
                 }
-
             }
         }
     }

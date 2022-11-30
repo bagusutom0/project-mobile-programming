@@ -1,5 +1,6 @@
 package com.latihan.project_mobile_programming.presentation.ui.task
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -15,11 +16,16 @@ class TaskAdapter(
 ): RecyclerView.Adapter<TaskAdapter.ViewHolder>() {
     inner class ViewHolder(private val binding: ItemTaskBinding):
         RecyclerView.ViewHolder(binding.root) {
+
+        @SuppressLint("ResourceAsColor")
         fun bind(todo: Todo) {
             binding.apply {
                 rbTask.isChecked = todo.isChecked
                 rbTask.setOnClickListener{
                     onRBClickListener?.invoke(todo.todo, todo.isChecked)
+                }
+                if (rbTask.isChecked) {
+                    cvTask.background.setTint(R.color.primary_main)
                 }
 
                 tvTaskTitle.text = todo.todo

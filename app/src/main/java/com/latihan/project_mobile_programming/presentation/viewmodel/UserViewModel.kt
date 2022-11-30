@@ -11,7 +11,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.launch
 
-class UserViewModel(private val userUseCase: UserUseCase): ViewModel() {
+class UserViewModel(private val userUseCase: UserUseCase) : ViewModel() {
     private val _user = MutableLiveData<User>()
     val user: LiveData<User> = _user
 
@@ -27,8 +27,8 @@ class UserViewModel(private val userUseCase: UserUseCase): ViewModel() {
                 }
                 .collect {
                     Log.d("LoginViewModel", "checkUser: $it")
-                    _isUserExist.postValue(true)
                     _user.postValue(it)
+                    _isUserExist.postValue(true)
                 }
         }
     }

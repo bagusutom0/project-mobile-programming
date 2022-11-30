@@ -1,12 +1,11 @@
 package com.latihan.project_mobile_programming.presentation.ui.profile
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import androidx.navigation.fragment.navArgs
 import com.latihan.project_mobile_programming.R
 import com.latihan.project_mobile_programming.databinding.FragmentProfileBinding
 import com.latihan.project_mobile_programming.presentation.viewmodel.UserViewModel
@@ -17,7 +16,6 @@ class ProfileFragment : Fragment() {
     private var _binding: FragmentProfileBinding? = null
     private val binding get() = _binding!!
 
-    private val args by navArgs<ProfileFragmentArgs>()
     private val viewModel by sharedViewModel<UserViewModel>()
 
     override fun onCreateView(
@@ -37,7 +35,7 @@ class ProfileFragment : Fragment() {
 
             toolbar.ibBack.setOnClickListener {
                 findNavController().navigate(
-                    ProfileFragmentDirections.actionProfileFragmentToChannelFragment(args.user)
+                    ProfileFragmentDirections.actionProfileFragmentToLoginFragment()
                 )
             }
             btnLogOut.setOnClickListener {

@@ -10,6 +10,7 @@ import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.latihan.project_mobile_programming.R
 import com.latihan.project_mobile_programming.databinding.FragmentChannelBinding
+import com.latihan.project_mobile_programming.presentation.ui.login.LoginFragment
 import com.latihan.project_mobile_programming.presentation.viewmodel.ChannelViewModel
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
@@ -35,6 +36,8 @@ class ChannelFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        LoginFragment.isNavigating = false
 
         with(binding) {
             toolbar.tvTitle.text = getString(R.string.title_channel)

@@ -1,6 +1,7 @@
 package com.latihan.project_mobile_programming.presentation.ui.login
 
 import android.os.Bundle
+import android.util.Patterns
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,8 +16,11 @@ class LoginFragment : Fragment() {
 
     private var _binding: FragmentLoginBinding? = null
     private val binding get() = _binding!!
-
     private val viewModel by sharedStateViewModel<UserViewModel>()
+
+    companion object {
+        var isNavigating = false
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -39,24 +43,47 @@ class LoginFragment : Fragment() {
             btnLogin.setOnClickListener {
                 val email = tietEmail.text.toString().trim()
                 val password = tietPassword.text.toString().trim()
-                viewModel.checkUser(email, password)
+
+                if (email.isEmpty() || password.isEmpty()) {
+                    Toast.makeText(
+                        requireContext(),
+                        "Email dan Password tidak boleh kosong",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                } else {
+                    if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+                        Toast.makeText(
+                            requireContext(),
+                            "Mohon masukan Email dengan benar",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    } else {
+                        viewModel.checkUser(email, password)
+                    }
+                }
             }
 
-        }
-
-        viewModel.run {
-            user.observe(viewLifecycleOwner) { user ->
+            viewModel.run {
                 isUserExist.observe(viewLifecycleOwner) { isUserExist ->
                     if (isUserExist) {
-                        findNavController()
-                            .navigate(
-                                LoginFragmentDirections.actionLoginFragmentToChannelFragment(
-                                    user.name
+                        user.observe(viewLifecycleOwner) { user ->
+                            if (!isNavigating) {
+                                isNavigating = true
+
+                                findNavController().navigate(
+                                    LoginFragmentDirections
+                                        .actionLoginFragmentToChannelFragment(
+                                            user.name
+                                        )
                                 )
-                            )
+                            }
+                        }
                     } else {
-                        Toast.makeText(requireActivity(), "User Tidak Ada", Toast.LENGTH_SHORT)
-                            .show()
+                        Toast.makeText(
+                            requireContext(),
+                            "User Tidak Ada",
+                            Toast.LENGTH_SHORT
+                        ).show()
                     }
                 }
             }
